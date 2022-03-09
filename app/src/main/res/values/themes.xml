@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/crown_primary</item>
+        <item name="colorPrimaryDark">@color/crown_primary_dark</item>
+        <item name="colorAccent">@color/crown_accent</item>
+
+        <!--remove White screen is displayed while switching between Activities-->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+</resources>
