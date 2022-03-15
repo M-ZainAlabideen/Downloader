@@ -11,8 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import javax.inject.Inject
 
-@HiltViewModel
-class FilesViewModel @Inject constructor(private val repository: FilesRepo) : ViewModel() {
+class FilesViewModel(private val repository: FilesRepo) : ViewModel() {
 
     private lateinit var job: Job
 

@@ -11,7 +11,6 @@ import com.downloader.R
 import com.downloader.databinding.ActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
 
     private var binding: ActivitySplashBinding? = null

@@ -18,12 +18,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-@Module
-@InstallIn(ActivityComponent::class)
 interface ApiInterface {
 
     companion object {
-
         operator fun invoke(): ApiInterface {
 
 
@@ -62,7 +59,6 @@ interface ApiInterface {
         }
     }
 
-    @Binds
     @GET("getListOfFilesResponse.json")
     suspend fun getFiles(): Response<ArrayList<FileResponse>>
 }

@@ -23,13 +23,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
-@AndroidEntryPoint
 class FilesFragment : Fragment() {
     private var binding: FragmentFilesBinding? = null
     private lateinit var filesViewModelFactory: FilesViewModelFactory
-
-    @Inject
-    lateinit var viewModel: FilesViewModel
+    lateinit var filesViewModel: FilesViewModel
 
     var status = 0
     var handler = Handler()
@@ -80,11 +77,11 @@ class FilesFragment : Fragment() {
 
     private fun initViewModel() {
         filesViewModelFactory = FilesViewModelFactory(filesRepo)
-        //filesViewModel = ViewModelProvider(this, filesViewModelFactory)[FilesViewModel::class.java]
+        filesViewModel = ViewModelProvider(this, filesViewModelFactory)[FilesViewModel::class.java]
     }
 
     private fun initProgress() {
-        viewModel.getProgress().observe(viewLifecycleOwner) { aBoolean ->
+        filesViewModel.getProgress().observe(viewLifecycleOwner) { aBoolean ->
             if (aBoolean == true) {
                 binding!!.filesList.showShimmer()
             } else {
@@ -94,8 +91,8 @@ class FilesFragment : Fragment() {
     }
 
     private fun getFilesApi() {
-        viewModel.getFiles()
-        viewModel.slider.observe(viewLifecycleOwner) { response ->
+        filesViewModel.getFiles()
+        filesViewModel.slider.observe(viewLifecycleOwner) { response ->
             if (response != null && response.size > 0) {
                 setFiles(response)
             }
